@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIQUE BEST CLEANING SERVICES</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #64b5f6;
+            --accent-color: #0d47a1;
+            --light-color: #f5f9ff;
+            --dark-color: #333333;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Hero\ Section.webp');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            background: #fff;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .feature-icon {
+            background-color: var(--light-color);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .about-us {
+            background-color: var(--light-color);
+        }
+        
+        .why-choose-us {
+            background-color: var(--light-color);
+        }
+        
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .form-control {
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero {
+                padding: 100px 0;
+            }
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">UNIQUE BEST CLEANING SERVICES</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-choose-us">Why Choose Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="display-4 fw-bold mb-4">UNIQUE BEST CLEANING SERVICES</h1>
+                <p class="lead mb-5">Shining Spaces, Happy Faces</p>
+                <a href="#contact" class="btn btn-primary btn-lg">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="/before after.jfif" alt="About Us" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">About Us</h2>
+                    <p class="mb-4">Welcome to UNIQUE BEST CLEANING SERVICES, your trusted partner for premium cleaning solutions. With years of experience in the industry, we have established ourselves as a leader in providing exceptional cleaning services to homes and businesses alike.</p>
+                    <p class="mb-4">Our team of highly trained professionals is committed to delivering outstanding results that exceed your expectations. We understand that every space is unique, which is why we tailor our cleaning approach to meet your specific needs.</p>
+                    <p>Whether you need a one-time deep cleaning or regular maintenance, our dedicated team is here to ensure your space is spotless, sanitized, and welcoming. We take pride in our attention to detail and our commitment to customer satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- EXTRA SECTIONS TO PASTE INTO index.html -->
+
+<!-- Mission and Vision Section -->
+<section id="mission-vision" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Mission & Vision</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Our Mission</h4>
+          <p>To provide consistent, high-standard cleaning services using eco-friendly and safe products. We aim to exceed client expectations through reliability, transparency, and professionalism.</p>
+        </div>
+        <div class="col-md-6">
+          <h4>Our Vision</h4>
+          <p>To become a leading name in the cleaning industry known for innovation, quality, and an unwavering commitment to customer satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Commitment -->
+  <section id="commitment">
+    <div class="container">
+      <h2 class="section-title">Our Commitment</h2>
+      <p class="text-center">We build lasting relationships through trust, quality, and consistent service. Our goal is to make every space healthier and more comfortable.</p>
+    </div>
+  </section>
+  
+  <!-- Our Solution -->
+  <section id="solution" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Solution</h2>
+      <p class="text-center">We combine deep cleaning techniques, technology, and trained professionals to deliver reliable and healthy results in every environment we service.</p>
+    </div>
+  </section>
+  
+  <!-- Our Approach -->
+  <section id="approach">
+    <div class="container">
+      <h2 class="section-title">Our Approach</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li><strong>Assessment:</strong> Site visit and requirement analysis</li>
+            <li><strong>Proposal:</strong> Custom plan and quote</li>
+            <li><strong>Execution:</strong> Trained team with checklists</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li><strong>Feedback:</strong> Client review and improvements</li>
+            <li><strong>Improvement:</strong> Continuous updates to service quality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Learning and Development Program -->
+  <section id="learning" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Learning & Development</h2>
+      <p class="text-center">We invest in ongoing training for our staff: cleaning methods, safety, chemical handling, and client interaction to ensure excellence and professionalism.</p>
+    </div>
+  </section>
+  
+  <!-- Client List -->
+  <section id="clients">
+    <div class="container">
+      <h2 class="section-title">Clients We Serve</h2>
+      <ul class="text-center list-unstyled">
+        <li>Residential Societies</li>
+        <li>SMEs & Offices</li>
+        <li>Construction Companies</li>
+        <li>Restaurants & Cafes</li>
+        <li>Clinics & Healthcare Facilities</li>
+        <li>Retail Stores</li>
+        <li>Event Organizers</li>
+        <li>Government Buildings</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- END OF EXTRA SECTIONS -->
+  
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Home Cleaning</h3>
+                        <p>Our comprehensive home cleaning service covers all areas of your home, from the kitchen and bathrooms to bedrooms and living spaces. We'll leave your home sparkling clean and fresh.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Office Cleaning</h3>
+                        <p>Create a clean, professional environment for your employees and clients with our thorough office cleaning services. We'll ensure your workspace is sanitized and ready for productivity.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3>Deep Cleaning</h3>
+                        <p>Our deep cleaning service reaches those hard-to-clean areas and tackles stubborn dirt and grime. Perfect for seasonal cleaning or preparing for special occasions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Move-in / Move-out Cleaning</h3>
+                        <p>Starting fresh in a new place or leaving your old one? Our move-in/move-out cleaning ensures your space is impeccably clean for the next chapter.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <h3>Sanitation / Disinfection</h3>
+                        <p>Our specialized sanitation services eliminate harmful germs and bacteria, creating a safer environment for you, your family, or your employees.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Scheduled Maintenance</h3>
+                        <p>Set up regular cleaning schedules that work for you—whether it's weekly, bi-weekly, or monthly. Enjoy consistent cleanliness without the hassle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Affordable Pricing</h4>
+                            <p>We offer competitive rates without compromising on quality. Our transparent pricing ensures you know exactly what you're paying for.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Reliable Service</h4>
+                            <p>Count on us to arrive on time, every time. We respect your schedule and ensure consistent, dependable service with every visit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Trained Staff</h4>
+                            <p>Our cleaning professionals undergo rigorous training and background checks to ensure the highest standards of service and security.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Eco-friendly Products</h4>
+                            <p>We use environmentally friendly cleaning products that are effective yet safe for your family, pets, and the planet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>100% Satisfaction</h4>
+                            <p>Your satisfaction is our priority. If you're not completely happy with our service, we'll make it right.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Fully Insured</h4>
+                            <p>Rest easy knowing that our company is fully insured, providing peace of mind with every service we provide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+   <section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="contact-card">
+                    <h3 class="contact-header mb-0 text-uppercase fw-bold">CONTACT US:</h3>
+                    <div class="contact-body">
+                        <div class="contact-person mb-4">
+                            <p class="mb-2"><i class="fas fa-phone"></i> Sameer More - 9004242472</p>
+                            <p class="mb-2"><i class="fas fa-phone"></i> Tushar Thite - 9082007371</p>
+                            <p class="mb-0"><i class="fas fa-phone"></i> Chetan Gaikwad - 8779732348</p>
+                        </div>
+                        
+                        <div class="contact-emails mb-4">
+                            <p class="mb-2"><i class="fas fa-envelope"></i> support@uniquebestcleaningservice.com</p>
+                            <p class="mb-0"><i class="fas fa-envelope"></i> sales@uniquebestcleaningservice.com</p>
+                        </div>
+                        
+                        <div class="contact-address">
+                            <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Office address- Shop no.4<br>
+                            Shree Sai Mahal Building,<br>
+                            Fatak road, Bhayander west,<br>
+                            Thane - 401101</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-hours mt-4">
+                    <h4>Business Hours</h4>
+                    <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                    <p>Sunday: 9:00 AM - 1:00 PM</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control" id="service">
+                                <option value="">Select Service</option>
+                                <option value="Home Cleaning">Home Cleaning</option>
+                                <option value="Office Cleaning">Office Cleaning</option>
+                                <option value="Deep Cleaning">Deep Cleaning</option>
+                                <option value="Move-in/Move-out">Move-in / Move-out Cleaning</option>
+                                <option value="Sanitation">Sanitation / Disinfection</option>
+                                <option value="Regular Maintenance">Regular Maintenance</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="text-white">UNIQUE BEST CLEANING SERVICES</h4>
+                    <p>Providing exceptional cleaning services with a focus on quality, reliability, and customer satisfaction.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#why-choose-us">Why Choose Us</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white">Connect With Us</h5>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3 text-light"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="me-3 text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3 text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                <p>&copy; 2025 UNIQUE BEST CLEANING SERVICES. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real environment, you'd send this data to a server
+            // But for now, we'll just show a success message
+            alert('Thank you for contacting us, ' + name + '! We will get back to you shortly.');
+            
+            // Reset the form
+            this.reset();
+        });
+
+        // Back to top button functionality
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+
+        // Active navigation menu based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
