@@ -39,6 +39,7 @@
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color) !important;
+            font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
         }
         
         .nav-link {
@@ -57,14 +58,24 @@
             background-size: cover;
             background-position: center;
             color: #fff;
-            padding: 150px 0;
+            padding: 100px 0; /* Reduced padding for mobile */
             text-align: center;
             position: relative;
+            margin-top: 76px; /* Adjusted for fixed navbar */
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 15px; /* Added padding for small screens */
+        }
+        
+        .hero h1 {
+            font-size: clamp(1.75rem, 5vw, 3.5rem); /* Responsive font size */
+        }
+        
+        .hero .lead {
+            font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
         }
         
         .btn-primary {
@@ -84,13 +95,14 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 60px 0; /* Reduced padding for mobile */
         }
         
         .section-title {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-align: center;
             position: relative;
+            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
         }
         
         .section-title::after {
@@ -105,12 +117,13 @@
         }
         
         .service-card {
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             background: #fff;
+            margin-bottom: 20px; /* Added margin for mobile spacing */
         }
         
         .service-card:hover {
@@ -119,7 +132,7 @@
         }
         
         .service-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
@@ -154,7 +167,15 @@
         
         .contact-form {
             background: #fff;
-            padding: 40px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px; /* Added margin for mobile spacing */
+        }
+        
+        .contact-card {
+            background: #fff;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
@@ -227,20 +248,114 @@
             visibility: visible;
         }
         
+        /* Improved Mobile Responsiveness */
+        @media (max-width: 991.98px) {
+            .navbar-brand {
+                max-width: 200px;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+        }
+        
         @media (max-width: 767.98px) {
             .hero {
-                padding: 100px 0;
+                padding: 80px 0;
+                margin-top: 66px; /* Adjusted for smaller navbar on mobile */
             }
+            
             .feature-item {
                 flex-direction: column;
                 text-align: center;
             }
+            
             .feature-icon {
                 margin-right: 0;
                 margin-bottom: 15px;
                 margin-left: auto;
                 margin-right: auto;
             }
+            
+            .contact-card, .contact-form {
+                padding: 20px;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .social-links {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .navbar-brand {
+                font-size: 1rem;
+                max-width: 180px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .btn-primary {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .feature-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            footer h4, footer h5 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Fix for image responsiveness */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Fix extra horizontal scrolling */
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+            overflow-x: hidden;
+        }
+        
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
         }
     </style>
 </head>
@@ -278,7 +393,7 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="display-4 fw-bold mb-4">UNIQUE BEST CLEANING SERVICES</h1>
+                <h1 class="fw-bold mb-4">UNIQUE BEST CLEANING SERVICES</h1>
                 <p class="lead mb-5">Shining Spaces, Happy Faces</p>
                 <a href="#contact" class="btn btn-primary btn-lg">Get a Quote</a>
             </div>
@@ -301,90 +416,86 @@
             </div>
         </div>
     </section>
-    <!-- EXTRA SECTIONS TO PASTE INTO index.html -->
-
-<!-- Mission and Vision Section -->
-<section id="mission-vision" class="bg-light">
-    <div class="container">
-      <h2 class="section-title">Our Mission & Vision</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h4>Our Mission</h4>
-          <p>To provide consistent, high-standard cleaning services using eco-friendly and safe products. We aim to exceed client expectations through reliability, transparency, and professionalism.</p>
+    
+    <!-- Mission and Vision Section -->
+    <section id="mission-vision" class="bg-light">
+        <div class="container">
+          <h2 class="section-title">Our Mission & Vision</h2>
+          <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <h4>Our Mission</h4>
+              <p>To provide consistent, high-standard cleaning services using eco-friendly and safe products. We aim to exceed client expectations through reliability, transparency, and professionalism.</p>
+            </div>
+            <div class="col-md-6">
+              <h4>Our Vision</h4>
+              <p>To become a leading name in the cleaning industry known for innovation, quality, and an unwavering commitment to customer satisfaction.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h4>Our Vision</h4>
-          <p>To become a leading name in the cleaning industry known for innovation, quality, and an unwavering commitment to customer satisfaction.</p>
+    </section>
+      
+    <!-- Our Commitment -->
+    <section id="commitment">
+        <div class="container">
+          <h2 class="section-title">Our Commitment</h2>
+          <p class="text-center">We build lasting relationships through trust, quality, and consistent service. Our goal is to make every space healthier and more comfortable.</p>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Our Commitment -->
-  <section id="commitment">
-    <div class="container">
-      <h2 class="section-title">Our Commitment</h2>
-      <p class="text-center">We build lasting relationships through trust, quality, and consistent service. Our goal is to make every space healthier and more comfortable.</p>
-    </div>
-  </section>
-  
-  <!-- Our Solution -->
-  <section id="solution" class="bg-light">
-    <div class="container">
-      <h2 class="section-title">Our Solution</h2>
-      <p class="text-center">We combine deep cleaning techniques, technology, and trained professionals to deliver reliable and healthy results in every environment we service.</p>
-    </div>
-  </section>
-  
-  <!-- Our Approach -->
-  <section id="approach">
-    <div class="container">
-      <h2 class="section-title">Our Approach</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <ul>
-            <li><strong>Assessment:</strong> Site visit and requirement analysis</li>
-            <li><strong>Proposal:</strong> Custom plan and quote</li>
-            <li><strong>Execution:</strong> Trained team with checklists</li>
-          </ul>
+    </section>
+      
+    <!-- Our Solution -->
+    <section id="solution" class="bg-light">
+        <div class="container">
+          <h2 class="section-title">Our Solution</h2>
+          <p class="text-center">We combine deep cleaning techniques, technology, and trained professionals to deliver reliable and healthy results in every environment we service.</p>
         </div>
-        <div class="col-md-6">
-          <ul>
-            <li><strong>Feedback:</strong> Client review and improvements</li>
-            <li><strong>Improvement:</strong> Continuous updates to service quality</li>
-          </ul>
+    </section>
+      
+    <!-- Our Approach -->
+    <section id="approach">
+        <div class="container">
+          <h2 class="section-title">Our Approach</h2>
+          <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <ul>
+                <li><strong>Assessment:</strong> Site visit and requirement analysis</li>
+                <li><strong>Proposal:</strong> Custom plan and quote</li>
+                <li><strong>Execution:</strong> Trained team with checklists</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li><strong>Feedback:</strong> Client review and improvements</li>
+                <li><strong>Improvement:</strong> Continuous updates to service quality</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Learning and Development Program -->
-  <section id="learning" class="bg-light">
-    <div class="container">
-      <h2 class="section-title">Learning & Development</h2>
-      <p class="text-center">We invest in ongoing training for our staff: cleaning methods, safety, chemical handling, and client interaction to ensure excellence and professionalism.</p>
-    </div>
-  </section>
-  
-  <!-- Client List -->
-  <section id="clients">
-    <div class="container">
-      <h2 class="section-title">Clients We Serve</h2>
-      <ul class="text-center list-unstyled">
-        <li>Residential Societies</li>
-        <li>SMEs & Offices</li>
-        <li>Construction Companies</li>
-        <li>Restaurants & Cafes</li>
-        <li>Clinics & Healthcare Facilities</li>
-        <li>Retail Stores</li>
-        <li>Event Organizers</li>
-        <li>Government Buildings</li>
-      </ul>
-    </div>
-  </section>
-  
-  <!-- END OF EXTRA SECTIONS -->
-  
+    </section>
+      
+    <!-- Learning and Development Program -->
+    <section id="learning" class="bg-light">
+        <div class="container">
+          <h2 class="section-title">Learning & Development</h2>
+          <p class="text-center">We invest in ongoing training for our staff: cleaning methods, safety, chemical handling, and client interaction to ensure excellence and professionalism.</p>
+        </div>
+    </section>
+      
+    <!-- Client List -->
+    <section id="clients">
+        <div class="container">
+          <h2 class="section-title">Clients We Serve</h2>
+          <div class="row text-center">
+            <div class="col-6 col-md-3 mb-3"><p>Residential Societies</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>SMEs & Offices</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>Construction Companies</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>Restaurants & Cafes</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>Clinics & Healthcare</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>Retail Stores</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>Event Organizers</p></div>
+            <div class="col-6 col-md-3 mb-3"><p>Government Buildings</p></div>
+          </div>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
@@ -524,84 +635,84 @@
         </div>
     </section>
 
-   <!-- Contact Section -->
-   <section id="contact" class="contact">
-    <div class="container">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="row">
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <div class="contact-card">
-                    <h3 class="contact-header mb-0 text-uppercase fw-bold">CONTACT US:</h3>
-                    <div class="contact-body">
-                        <div class="contact-person mb-4">
-                            <p class="mb-2"><i class="fas fa-phone"></i> Sameer More - 9004242472</p>
-                            <p class="mb-2"><i class="fas fa-phone"></i> Tushar Thite - 9082007371</p>
-                            <p class="mb-0"><i class="fas fa-phone"></i> Chetan Gaikwad - 8779732348</p>
-                        </div>
-                        
-                        <div class="contact-emails mb-4">
-                            <p class="mb-2"><i class="fas fa-envelope"></i> support@uniquebestcleaningservice.com</p>
-                            <p class="mb-0"><i class="fas fa-envelope"></i> sales@uniquebestcleaningservice.com</p>
-                        </div>
-                        
-                        <div class="contact-address">
-                            <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Office address- Shop no.4<br>
-                            Shree Sai Mahal Building,<br>
-                            Fatak road, Bhayander west,<br>
-                            Thane - 401101</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="contact-card mb-4">
+                        <h3 class="contact-header mb-3 text-uppercase fw-bold">CONTACT US:</h3>
+                        <div class="contact-body">
+                            <div class="contact-person mb-4">
+                                <p class="mb-2"><i class="fas fa-phone"></i> Sameer More - 9004242472</p>
+                                <p class="mb-2"><i class="fas fa-phone"></i> Tushar Thite - 9082007371</p>
+                                <p class="mb-0"><i class="fas fa-phone"></i> Chetan Gaikwad - 8779732348</p>
+                            </div>
+                            
+                            <div class="contact-emails mb-4">
+                                <p class="mb-2 text-break"><i class="fas fa-envelope"></i> support@uniquebestcleaningservice.com</p>
+                                <p class="mb-0 text-break"><i class="fas fa-envelope"></i> sales@uniquebestcleaningservice.com</p>
+                            </div>
+                            
+                            <div class="contact-address">
+                                <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Office address- Shop no.4<br>
+                                Shree Sai Mahal Building,<br>
+                                Fatak road, Bhayander west,<br>
+                                Thane - 401101</p>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <p class="mb-1">Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                        <p>Sunday: 9:00 AM - 1:00 PM</p>
+                    </div>
                 </div>
-                
-                <div class="business-hours mt-4">
-                    <h4>Business Hours</h4>
-                    <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
-                    <p>Sunday: 9:00 AM - 1:00 PM</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="mb-3">
-                            <select class="form-control" id="service">
-                                <option value="">Select Service</option>
-                                <option value="Home Cleaning">Home Cleaning</option>
-                                <option value="Office Cleaning">Office Cleaning</option>
-                                <option value="Deep Cleaning">Deep Cleaning</option>
-                                <option value="Move-in/Move-out">Move-in / Move-out Cleaning</option>
-                                <option value="Sanitation">Sanitation / Disinfection</option>
-                                <option value="Regular Maintenance">Regular Maintenance</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </form>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-control" id="service">
+                                    <option value="">Select Service</option>
+                                    <option value="Home Cleaning">Home Cleaning</option>
+                                    <option value="Office Cleaning">Office Cleaning</option>
+                                    <option value="Deep Cleaning">Deep Cleaning</option>
+                                    <option value="Move-in/Move-out">Move-in / Move-out Cleaning</option>
+                                    <option value="Sanitation">Sanitation / Disinfection</option>
+                                    <option value="Regular Maintenance">Regular Maintenance</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                     <h4 class="text-white">UNIQUE BEST CLEANING SERVICES</h4>
                     <p>Providing exceptional cleaning services with a focus on quality, reliability, and customer satisfaction.</p>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                     <h5 class="text-white">Quick Links</h5>
                     <div class="footer-links">
                         <a href="#home">Home</a>
@@ -611,7 +722,7 @@
                         <a href="#contact">Contact</a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-12">
                     <h5 class="text-white">Connect With Us</h5>
                     <div class="social-links mt-3">
                         <a href="#" class="me-3 text-light"><i class="fab fa-facebook-f fa-lg"></i></a>
@@ -671,19 +782,29 @@
             });
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links with offset for fixed navbar
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                // Close mobile menu if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    navbarCollapse.classList.remove('show');
+                if (targetElement) {
+                    // Calculate offset to account for fixed navbar
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
                 }
             });
         });
@@ -692,11 +813,12 @@
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
             
             let current = '';
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
+                const sectionTop = section.offsetTop - navbarHeight - 20; // Added extra offset
                 const sectionHeight = section.clientHeight;
                 
                 if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
@@ -710,6 +832,25 @@
                     link.classList.add('active');
                 }
             });
+        });
+        
+        // Handle resize events for responsive adjustments
+        window.addEventListener('resize', function() {
+            // Adjust hero section margin-top based on navbar height
+            const navbar = document.querySelector('.navbar');
+            const hero = document.querySelector('.hero');
+            if (hero && navbar) {
+                hero.style.marginTop = navbar.offsetHeight + 'px';
+            }
+        });
+        
+        // Run once on load to set initial margins
+        window.addEventListener('load', function() {
+            const navbar = document.querySelector('.navbar');
+            const hero = document.querySelector('.hero');
+            if (hero && navbar) {
+                hero.style.marginTop = navbar.offsetHeight + 'px';
+            }
         });
     </script>
 </body>
