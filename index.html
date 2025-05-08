@@ -10,360 +10,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1e88e5;
-            --secondary-color: #64b5f6;
-            --accent-color: #0d47a1;
-            --light-color: #f5f9ff;
-            --dark-color: #333333;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark-color);
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-        }
-        
-        .navbar {
-            transition: all 0.3s ease;
-            padding: 15px 0;
-            background-color: rgba(255, 255, 255, 0.95) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color) !important;
-            font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
-        }
-        
-        .nav-link {
-            color: var(--dark-color) !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-        
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/Patu2510/unique-cleaning-site/refs/heads/main/hs1.webp');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 100px 0; /* Reduced padding for mobile */
-            text-align: center;
-            position: relative;
-            margin-top: 76px; /* Adjusted for fixed navbar */
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 15px; /* Added padding for small screens */
-        }
-        
-        .hero h1 {
-            font-size: clamp(1.75rem, 5vw, 3.5rem); /* Responsive font size */
-        }
-        
-        .hero .lead {
-            font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 10px 25px;
-            font-weight: 500;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        section {
-            padding: 60px 0; /* Reduced padding for mobile */
-        }
-        
-        .section-title {
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .service-card {
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            height: 100%;
-            background: #fff;
-            margin-bottom: 20px; /* Added margin for mobile spacing */
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-        
-        .feature-icon {
-            background-color: var(--light-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-        
-        .about-us {
-            background-color: var(--light-color);
-        }
-        
-        .why-choose-us {
-            background-color: var(--light-color);
-        }
-        
-        .contact-form {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px; /* Added margin for mobile spacing */
-        }
-        
-        .contact-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .contact-info {
-            margin-bottom: 30px;
-        }
-        
-        .contact-info i {
-            color: var(--primary-color);
-            margin-right: 10px;
-        }
-        
-        .form-control {
-            padding: 12px 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .form-control:focus {
-            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
-            border-color: var(--primary-color);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: #fff;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Improved Mobile Responsiveness */
-        @media (max-width: 991.98px) {
-            .navbar-brand {
-                max-width: 200px;
-                white-space: normal;
-                line-height: 1.2;
-            }
-            
-            section {
-                padding: 50px 0;
-            }
-            
-            .hero {
-                padding: 80px 0;
-            }
-        }
-        
-        @media (max-width: 767.98px) {
-            .hero {
-                padding: 80px 0;
-                margin-top: 66px; /* Adjusted for smaller navbar on mobile */
-            }
-            
-            .feature-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .feature-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .contact-card, .contact-form {
-                padding: 20px;
-            }
-            
-            section {
-                padding: 40px 0;
-            }
-            
-            .section-title {
-                margin-bottom: 30px;
-            }
-            
-            .service-card {
-                padding: 20px;
-            }
-            
-            .social-links {
-                margin-bottom: 20px;
-            }
-        }
-        
-        @media (max-width: 575.98px) {
-            .navbar-brand {
-                font-size: 1rem;
-                max-width: 180px;
-            }
-            
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .btn-primary {
-                padding: 8px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .service-icon {
-                font-size: 2rem;
-            }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .feature-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            footer h4, footer h5 {
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* Fix for image responsiveness */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* Fix extra horizontal scrolling */
-        .container {
-            padding-left: 15px;
-            padding-right: 15px;
-            overflow-x: hidden;
-        }
-        
-        .row {
-            margin-left: -15px;
-            margin-right: -15px;
-        }
-    </style>
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="Style.css" rel="stylesheet">
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emailjs-com/3.2.0/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Replace with your actual EmailJS user ID
+            emailjs.init("YOUR_EMAILJS_USER_ID");
+        })();
+    </script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">UNIQUE BEST CLEANING SERVICES</a>
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="UNIQUE BEST CLEANING SERVICES Logo">
+              </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -392,10 +63,10 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-up">
                 <h1 class="fw-bold mb-4">UNIQUE BEST CLEANING SERVICES</h1>
                 <p class="lead mb-5">Shining Spaces, Happy Faces</p>
-                <a href="#contact" class="btn btn-primary btn-lg">Get a Quote</a>
+                <a href="#booking" class="btn btn-primary btn-lg">Get a Quote</a>
             </div>
         </div>
     </section>
@@ -404,10 +75,10 @@
     <section id="about" class="about-us">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <img src="https://raw.githubusercontent.com/Patu2510/unique-cleaning-site/refs/heads/main/ba.jfif" alt="About Us" class="img-fluid rounded shadow-lg">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="hs.webp" alt="About Us" class="img-fluid rounded shadow-lg about-image">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left">
                     <h2 class="section-title text-start">About Us</h2>
                     <p class="mb-4">Welcome to UNIQUE BEST CLEANING SERVICES, your trusted partner for premium cleaning solutions. With years of experience in the industry, we have established ourselves as a leader in providing exceptional cleaning services to homes and businesses alike.</p>
                     <p class="mb-4">Our team of highly trained professionals is committed to delivering outstanding results that exceed your expectations. We understand that every space is unique, which is why we tailor our cleaning approach to meet your specific needs.</p>
@@ -420,13 +91,13 @@
     <!-- Mission and Vision Section -->
     <section id="mission-vision" class="bg-light">
         <div class="container">
-          <h2 class="section-title">Our Mission & Vision</h2>
+          <h2 class="section-title" data-aos="fade-up">Our Mission & Vision</h2>
           <div class="row">
-            <div class="col-md-6 mb-4 mb-md-0">
+            <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-delay="100">
               <h4>Our Mission</h4>
               <p>To provide consistent, high-standard cleaning services using eco-friendly and safe products. We aim to exceed client expectations through reliability, transparency, and professionalism.</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
               <h4>Our Vision</h4>
               <p>To become a leading name in the cleaning industry known for innovation, quality, and an unwavering commitment to customer satisfaction.</p>
             </div>
@@ -437,32 +108,32 @@
     <!-- Our Commitment -->
     <section id="commitment">
         <div class="container">
-          <h2 class="section-title">Our Commitment</h2>
-          <p class="text-center">We build lasting relationships through trust, quality, and consistent service. Our goal is to make every space healthier and more comfortable.</p>
+          <h2 class="section-title" data-aos="fade-up">Our Commitment</h2>
+          <p class="text-center" data-aos="fade-up" data-aos-delay="100">We build lasting relationships through trust, quality, and consistent service. Our goal is to make every space healthier and more comfortable.</p>
         </div>
     </section>
       
     <!-- Our Solution -->
     <section id="solution" class="bg-light">
         <div class="container">
-          <h2 class="section-title">Our Solution</h2>
-          <p class="text-center">We combine deep cleaning techniques, technology, and trained professionals to deliver reliable and healthy results in every environment we service.</p>
+          <h2 class="section-title" data-aos="fade-up">Our Solution</h2>
+          <p class="text-center" data-aos="fade-up" data-aos-delay="100">We combine deep cleaning techniques, technology, and trained professionals to deliver reliable and healthy results in every environment we service.</p>
         </div>
     </section>
       
     <!-- Our Approach -->
     <section id="approach">
         <div class="container">
-          <h2 class="section-title">Our Approach</h2>
+          <h2 class="section-title" data-aos="fade-up">Our Approach</h2>
           <div class="row">
-            <div class="col-md-6 mb-4 mb-md-0">
+            <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right" data-aos-delay="100">
               <ul>
                 <li><strong>Assessment:</strong> Site visit and requirement analysis</li>
                 <li><strong>Proposal:</strong> Custom plan and quote</li>
                 <li><strong>Execution:</strong> Trained team with checklists</li>
               </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
               <ul>
                 <li><strong>Feedback:</strong> Client review and improvements</li>
                 <li><strong>Improvement:</strong> Continuous updates to service quality</li>
@@ -475,16 +146,16 @@
     <!-- Learning and Development Program -->
     <section id="learning" class="bg-light">
         <div class="container">
-          <h2 class="section-title">Learning & Development</h2>
-          <p class="text-center">We invest in ongoing training for our staff: cleaning methods, safety, chemical handling, and client interaction to ensure excellence and professionalism.</p>
+          <h2 class="section-title" data-aos="fade-up">Learning & Development</h2>
+          <p class="text-center" data-aos="fade-up" data-aos-delay="100">We invest in ongoing training for our staff: cleaning methods, safety, chemical handling, and client interaction to ensure excellence and professionalism.</p>
         </div>
     </section>
       
     <!-- Client List -->
     <section id="clients">
         <div class="container">
-          <h2 class="section-title">Clients We Serve</h2>
-          <div class="row text-center">
+          <h2 class="section-title" data-aos="fade-up">Clients We Serve</h2>
+          <div class="row text-center" data-aos="fade-up" data-aos-delay="100">
             <div class="col-6 col-md-3 mb-3"><p>Residential Societies</p></div>
             <div class="col-6 col-md-3 mb-3"><p>SMEs & Offices</p></div>
             <div class="col-6 col-md-3 mb-3"><p>Construction Companies</p></div>
@@ -500,9 +171,9 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title" data-aos="fade-up">Our Services</h2>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-home"></i>
@@ -511,7 +182,7 @@
                         <p>Our comprehensive home cleaning service covers all areas of your home, from the kitchen and bathrooms to bedrooms and living spaces. We'll leave your home sparkling clean and fresh.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-building"></i>
@@ -520,7 +191,7 @@
                         <p>Create a clean, professional environment for your employees and clients with our thorough office cleaning services. We'll ensure your workspace is sanitized and ready for productivity.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-broom"></i>
@@ -529,7 +200,7 @@
                         <p>Our deep cleaning service reaches those hard-to-clean areas and tackles stubborn dirt and grime. Perfect for seasonal cleaning or preparing for special occasions.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-box-open"></i>
@@ -538,7 +209,7 @@
                         <p>Starting fresh in a new place or leaving your old one? Our move-in/move-out cleaning ensures your space is impeccably clean for the next chapter.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-spray-can"></i>
@@ -547,7 +218,7 @@
                         <p>Our specialized sanitation services eliminate harmful germs and bacteria, creating a safer environment for you, your family, or your employees.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-calendar-check"></i>
@@ -560,12 +231,86 @@
         </div>
     </section>
 
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Book Our Services</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="booking-form">
+                        <form id="bookingForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookingName">Full Name</label>
+                                    <input type="text" class="form-control" id="bookingName" placeholder="Your Name" required>
+                                    <div class="invalid-feedback">Please provide your name</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookingEmail">Email Address</label>
+                                    <input type="email" class="form-control" id="bookingEmail" placeholder="Your Email" required>
+                                    <div class="invalid-feedback">Please provide a valid email</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookingPhone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="bookingPhone" placeholder="Your Phone" required>
+                                    <div class="invalid-feedback">Please provide a valid phone number</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookingService">Select Service</label>
+                                    <select class="form-control" id="bookingService" required>
+                                        <option value="">Choose a service</option>
+                                        <option value="Home Cleaning">Home Cleaning</option>
+                                        <option value="Office Cleaning">Office Cleaning</option>
+                                        <option value="Deep Cleaning">Deep Cleaning</option>
+                                        <option value="Move-in/Move-out">Move-in / Move-out Cleaning</option>
+                                        <option value="Sanitation">Sanitation / Disinfection</option>
+                                        <option value="Regular Maintenance">Regular Maintenance</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a service</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookingDate">Preferred Date</label>
+                                    <input type="date" class="form-control" id="bookingDate" required>
+                                    <div class="invalid-feedback">Please select a valid future date</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="bookingTime">Preferred Time</label>
+                                    <select class="form-control" id="bookingTime" required>
+                                        <option value="">Select Time</option>
+                                        <option value="Morning (8AM-12PM)">Morning (8AM-12PM)</option>
+                                        <option value="Afternoon (12PM-4PM)">Afternoon (12PM-4PM)</option>
+                                        <option value="Evening (4PM-8PM)">Evening (4PM-8PM)</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a time</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bookingAddress">Address</label>
+                                <textarea class="form-control" id="bookingAddress" rows="3" placeholder="Your Address" required></textarea>
+                                <div class="invalid-feedback">Please provide your address</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bookingNotes">Special Instructions (Optional)</label>
+                                <textarea class="form-control" id="bookingNotes" rows="3" placeholder="Any special requirements or notes"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Choose Us Section -->
     <section id="why-choose-us" class="why-choose-us">
         <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
+            <h2 class="section-title" data-aos="fade-up">Why Choose Us</h2>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-dollar-sign"></i>
@@ -576,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-clock"></i>
@@ -587,7 +332,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-user-tie"></i>
@@ -598,7 +343,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-leaf"></i>
@@ -609,7 +354,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="300">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-smile"></i>
@@ -620,7 +365,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -638,25 +383,25 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
             <div class="row">
-                <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
                     <div class="contact-card mb-4">
                         <h3 class="contact-header mb-3 text-uppercase fw-bold">CONTACT US:</h3>
                         <div class="contact-body">
-                            <div class="contact-person mb-4">
-                                <p class="mb-2"><i class="fas fa-phone"></i> Sameer More - 9004242472</p>
-                                <p class="mb-2"><i class="fas fa-phone"></i> Tushar Thite - 9082007371</p>
-                                <p class="mb-0"><i class="fas fa-phone"></i> Chetan Gaikwad - 8779732348</p>
+                            <div class="contact-info-item mb-4">
+                                <p class="mb-2"><i class="fas fa-phone me-2"></i> Sameer More - 9004242472</p>
+                                <p class="mb-2"><i class="fas fa-phone me-2"></i> Tushar Thite - 9082007371</p>
+                                <p class="mb-0"><i class="fas fa-phone me-2"></i> Chetan Gaikwad - 8779732348</p>
                             </div>
                             
-                            <div class="contact-emails mb-4">
-                                <p class="mb-2 text-break"><i class="fas fa-envelope"></i> support@uniquebestcleaningservice.com</p>
-                                <p class="mb-0 text-break"><i class="fas fa-envelope"></i> sales@uniquebestcleaningservice.com</p>
+                            <div class="contact-info-item mb-4">
+                                <p class="mb-2 text-break"><i class="fas fa-envelope me-2"></i> support@uniquebestcleaningservice.com</p>
+                                <p class="mb-0 text-break"><i class="fas fa-envelope me-2"></i> sales@uniquebestcleaningservice.com</p>
                             </div>
                             
-                            <div class="contact-address">
-                                <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Office address- Shop no.4<br>
+                            <div class="contact-info-item">
+                                <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> Office address- Shop no.4<br>
                                 Shree Sai Mahal Building,<br>
                                 Fatak road, Bhayander west,<br>
                                 Thane - 401101</p>
@@ -670,20 +415,23 @@
                         <p>Sunday: 9:00 AM - 1:00 PM</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
                     <div class="contact-form">
                         <form id="contactForm">
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                <div class="invalid-feedback">Please provide your name</div>
                             </div>
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                <div class="invalid-feedback">Please provide a valid email</div>
                             </div>
                             <div class="mb-3">
                                 <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+                                <div class="invalid-feedback">Please provide a valid phone number</div>
                             </div>
                             <div class="mb-3">
-                                <select class="form-control" id="service">
+                                <select class="form-control" id="service" required>
                                     <option value="">Select Service</option>
                                     <option value="Home Cleaning">Home Cleaning</option>
                                     <option value="Office Cleaning">Office Cleaning</option>
@@ -692,9 +440,11 @@
                                     <option value="Sanitation">Sanitation / Disinfection</option>
                                     <option value="Regular Maintenance">Regular Maintenance</option>
                                 </select>
+                                <div class="invalid-feedback">Please select a service</div>
                             </div>
                             <div class="mb-3">
                                 <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                                <div class="invalid-feedback">Please enter your message</div>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Send Message</button>
                         </form>
@@ -704,152 +454,158 @@
         </div>
     </section>
 
+    <!-- Alert Message -->
+    <div class="alert alert-success" id="alertMessage">
+        <span id="alertText">Thank you for your message!</span>
+        <span class="alert-close" id="alertClose">&times;</span>
+    </div>
+
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <h4 class="text-white">UNIQUE BEST CLEANING SERVICES</h4>
+                    <h4 class="text-white footer-title">UNIQUE BEST CLEANING SERVICES</h4>
                     <p>Providing exceptional cleaning services with a focus on quality, reliability, and customer satisfaction.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <h5 class="text-white">Quick Links</h5>
-                    <div class="footer-links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About Us</a>
-                        <a href="#services">Services</a>
-                        <a href="#why-choose-us">Why Choose Us</a>
-                        <a href="#contact">Contact</a>
-                    </div>
+                    <h5 class="text-white footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#why-choose-us">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <h5 class="text-white">Connect With Us</h5>
+                    <h5 class="text-white footer-title">Connect With Us</h5>
                     <div class="social-links mt-3">
-                        <a href="#" class="me-3 text-light"><i class="fab fa-facebook-f fa-lg"></i></a>
-                        <a href="#" class="me-3 text-light"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="me-3 text-light"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
             <div class="text-center copyright">
-                <p>&copy; 2025 UNIQUE BEST CLEANING SERVICES. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear">2025</span> UNIQUE BEST CLEANING SERVICES. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Urban Company Style Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-4">
+                    <i class="fas fa-check-circle text-success mb-3" style="font-size: 3rem;"></i>
+                    <h3 class="modal-title mb-3" id="successModalLabel">Request Sent Successfully!</h3>
+                    <p class="mb-4">Thank you for choosing UNIQUE BEST CLEANING SERVICES. We'll contact you shortly to confirm your booking.</p>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmailJS Template Configuration -->
+    <script type="text/template" id="emailTemplate">
+        <h2>New Booking Request</h2>
+        <p><strong>Name:</strong> {{name}}</p>
+        <p><strong>Email:</strong> {{email}}</p>
+        <p><strong>Phone:</strong> {{phone}}</p>
+        <p><strong>Service:</strong> {{service}}</p>
+        <p><strong>Date:</strong> {{date}}</p>
+        <p><strong>Time:</strong> {{time}}</p>
+        <p><strong>Address:</strong> {{address}}</p>
+        <p><strong>Notes:</strong> {{notes}}</p>
+    </script>
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- EmailJS Configuration Script -->
     <script>
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
+        document.addEventListener('DOMContentLoaded', function() {
+            // EmailJS configuration
+            const targetEmail = "jprathmesh581@gmail.com";
             
-            // In a real environment, you'd send this data to a server
-            // But for now, we'll just show a success message
-            alert('Thank you for contacting us, ' + name + '! We will get back to you shortly.');
-            
-            // Reset the form
-            this.reset();
-        });
-
-        // Back to top button functionality
-        window.addEventListener('scroll', function() {
-            const backToTopButton = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for navigation links with offset for fixed navbar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // Calculate offset to account for fixed navbar
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            // Booking form submission with EmailJS
+            const bookingForm = document.getElementById('bookingForm');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        navbarCollapse.classList.remove('show');
+                    // Form validation handled in script.js
+                    // Additional EmailJS specific code
+                    // If validation passes, send the email
+                    if (validateBookingForm()) {
+                        const templateParams = {
+                            to_email: targetEmail,
+                            from_name: document.getElementById('bookingName').value,
+                            from_email: document.getElementById('bookingEmail').value,
+                            from_phone: document.getElementById('bookingPhone').value,
+                            service_type: document.getElementById('bookingService').value,
+                            booking_date: document.getElementById('bookingDate').value,
+                            booking_time: document.getElementById('bookingTime').value,
+                            address: document.getElementById('bookingAddress').value,
+                            notes: document.getElementById('bookingNotes').value,
+                            form_type: "Booking Request"
+                        };
+                        
+                        emailjs.send('default_service', 'template_booking', templateParams)
+                            .then(function() {
+                                // Show success modal
+                                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                                successModal.show();
+                                bookingForm.reset();
+                            }, function(error) {
+                                console.error('EmailJS error:', error);
+                                alert('There was an error sending your booking. Please try again or contact us directly.');
+                            });
                     }
-                }
-            });
-        });
-
-        // Active navigation menu based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - navbarHeight - 20; // Added extra offset
-                const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Handle resize events for responsive adjustments
-        window.addEventListener('resize', function() {
-            // Adjust hero section margin-top based on navbar height
-            const navbar = document.querySelector('.navbar');
-            const hero = document.querySelector('.hero');
-            if (hero && navbar) {
-                hero.style.marginTop = navbar.offsetHeight + 'px';
+                });
             }
-        });
-        
-        // Run once on load to set initial margins
-        window.addEventListener('load', function() {
-            const navbar = document.querySelector('.navbar');
-            const hero = document.querySelector('.hero');
-            if (hero && navbar) {
-                hero.style.marginTop = navbar.offsetHeight + 'px';
+            
+            // Contact form submission with EmailJS
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // If validation passes, send the email
+                    if (validateContactForm()) {
+                        const templateParams = {
+                            to_email: targetEmail,
+                            from_name: document.getElementById('name').value,
+                            from_email: document.getElementById('email').value,
+                            from_phone: document.getElementById('phone').value,
+                            service_type: document.getElementById('service').value,
+                            message: document.getElementById('message').value,
+                            form_type: "Contact Request"
+                        };
+                        
+                        emailjs.send('default_service', 'template_contact', templateParams)
+                            .then(function() {
+                                // Show success message
+                                showAlert('Thank you for your message! We will get back to you soon.', 'success');
+                                contactForm.reset();
+                            }, function(error) {
+                                console.error('EmailJS error:', error);
+                                alert('There was an error sending your message. Please try again or contact us directly.');
+                            });
+                    }
+                });
             }
         });
     </script>
