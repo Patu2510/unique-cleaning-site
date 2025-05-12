@@ -4,390 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNIQUE BEST CLEANING SERVICES</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1e88e5;
-            --secondary-color: #64b5f6;
-            --accent-color: #0d47a1;
-            --light-color: #f5f9ff;
-            --dark-color: #333333;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark-color);
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-        }
-        
-        .navbar {
-            transition: all 0.3s ease;
-            padding: 15px 0;
-            background-color: rgba(255, 255, 255, 0.95) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color) !important;
-            font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
-        }
-        
-        .nav-link {
-            color: var(--dark-color) !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-        
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/Patu2510/unique-cleaning-site/refs/heads/main/hs1.webp');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 100px 0; /* Reduced padding for mobile */
-            text-align: center;
-            position: relative;
-            margin-top: 76px; /* Adjusted for fixed navbar */
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 15px; /* Added padding for small screens */
-        }
-        
-        .hero h1 {
-            font-size: clamp(1.75rem, 5vw, 3.5rem); /* Responsive font size */
-        }
-        
-        .hero .lead {
-            font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 10px 25px;
-            font-weight: 500;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        section {
-            padding: 60px 0; /* Reduced padding for mobile */
-        }
-        
-        .section-title {
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .service-card {
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            height: 100%;
-            background: #fff;
-            margin-bottom: 20px; /* Added margin for mobile spacing */
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-        
-        .feature-icon {
-            background-color: var(--light-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-        
-        .about-us {
-            background-color: var(--light-color);
-        }
-        
-        .why-choose-us {
-            background-color: var(--light-color);
-        }
-        
-        .contact-form {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px; /* Added margin for mobile spacing */
-        }
-        
-        .contact-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .contact-info {
-            margin-bottom: 30px;
-        }
-        
-        .contact-info i {
-            color: var(--primary-color);
-            margin-right: 10px;
-        }
-        
-        .form-control {
-            padding: 12px 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .form-control:focus {
-            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
-            border-color: var(--primary-color);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: #fff;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Improved Mobile Responsiveness */
-        @media (max-width: 991.98px) {
-            .navbar-brand {
-                max-width: 200px;
-                white-space: normal;
-                line-height: 1.2;
-            }
-            
-            section {
-                padding: 50px 0;
-            }
-            
-            .hero {
-                padding: 80px 0;
-            }
-        }
-        
-        @media (max-width: 767.98px) {
-            .hero {
-                padding: 80px 0;
-                margin-top: 66px; /* Adjusted for smaller navbar on mobile */
-            }
-            
-            .feature-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .feature-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .contact-card, .contact-form {
-                padding: 20px;
-            }
-            
-            section {
-                padding: 40px 0;
-            }
-            
-            .section-title {
-                margin-bottom: 30px;
-            }
-            
-            .service-card {
-                padding: 20px;
-            }
-            
-            .social-links {
-                margin-bottom: 20px;
-            }
-        }
-        
-        @media (max-width: 575.98px) {
-            .navbar-brand {
-                font-size: 1rem;
-                max-width: 180px;
-            }
-            
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .btn-primary {
-                padding: 8px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .service-icon {
-                font-size: 2rem;
-            }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .feature-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            footer h4, footer h5 {
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* Fix for image responsiveness */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* Fix extra horizontal scrolling */
-        .container {
-            padding-left: 15px;
-            padding-right: 15px;
-            overflow-x: hidden;
-        }
-        
-        .row {
-            margin-left: -15px;
-            margin-right: -15px;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">UNIQUE BEST CLEANING SERVICES</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#why-choose-us">Why Choose Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/logo.png" alt="UNIQUE BEST CLEANING SERVICES" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#why-choose-us">Why Choose Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -396,6 +47,7 @@
                 <h1 class="fw-bold mb-4">UNIQUE BEST CLEANING SERVICES</h1>
                 <p class="lead mb-5">Shining Spaces, Happy Faces</p>
                 <a href="#contact" class="btn btn-primary btn-lg">Get a Quote</a>
+                <a href="#" class="btn btn-success btn-lg ms-2" id="bookNowBtn">Book Now</a>
             </div>
         </div>
     </section>
@@ -509,6 +161,7 @@
                         </div>
                         <h3>Home Cleaning</h3>
                         <p>Our comprehensive home cleaning service covers all areas of your home, from the kitchen and bathrooms to bedrooms and living spaces. We'll leave your home sparkling clean and fresh.</p>
+                        <button class="btn btn-sm btn-primary service-book-btn" data-service="Home Cleaning">Book This Service</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -518,6 +171,7 @@
                         </div>
                         <h3>Office Cleaning</h3>
                         <p>Create a clean, professional environment for your employees and clients with our thorough office cleaning services. We'll ensure your workspace is sanitized and ready for productivity.</p>
+                        <button class="btn btn-sm btn-primary service-book-btn" data-service="Office Cleaning">Book This Service</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -527,6 +181,7 @@
                         </div>
                         <h3>Deep Cleaning</h3>
                         <p>Our deep cleaning service reaches those hard-to-clean areas and tackles stubborn dirt and grime. Perfect for seasonal cleaning or preparing for special occasions.</p>
+                        <button class="btn btn-sm btn-primary service-book-btn" data-service="Deep Cleaning">Book This Service</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -536,6 +191,7 @@
                         </div>
                         <h3>Move-in / Move-out Cleaning</h3>
                         <p>Starting fresh in a new place or leaving your old one? Our move-in/move-out cleaning ensures your space is impeccably clean for the next chapter.</p>
+                        <button class="btn btn-sm btn-primary service-book-btn" data-service="Move-in / Move-out Cleaning">Book This Service</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -545,6 +201,7 @@
                         </div>
                         <h3>Sanitation / Disinfection</h3>
                         <p>Our specialized sanitation services eliminate harmful germs and bacteria, creating a safer environment for you, your family, or your employees.</p>
+                        <button class="btn btn-sm btn-primary service-book-btn" data-service="Sanitation / Disinfection">Book This Service</button>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -554,6 +211,7 @@
                         </div>
                         <h3>Scheduled Maintenance</h3>
                         <p>Set up regular cleaning schedules that work for you—whether it's weekly, bi-weekly, or monthly. Enjoy consistent cleanliness without the hassle.</p>
+                        <button class="btn btn-sm btn-primary service-book-btn" data-service="Scheduled Maintenance">Book This Service</button>
                     </div>
                 </div>
             </div>
@@ -683,6 +341,9 @@
                                 <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
                             </div>
                             <div class="mb-3">
+                                <input type="text" class="form-control" id="address" placeholder="Your Address" required>
+                            </div>
+                            <div class="mb-3">
                                 <select class="form-control" id="service">
                                     <option value="">Select Service</option>
                                     <option value="Home Cleaning">Home Cleaning</option>
@@ -703,6 +364,66 @@
             </div>
         </div>
     </section>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel">Book a Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="mb-3">
+                            <label for="bookingName" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="bookingName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingEmail" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="bookingEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="bookingPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingAddress" class="form-label">Your Address</label>
+                            <textarea class="form-control" id="bookingAddress" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingService" class="form-label">Service</label>
+                            <select class="form-control" id="bookingService" required>
+                                <option value="">Select Service</option>
+                                <option value="Home Cleaning">Home Cleaning</option>
+                                <option value="Office Cleaning">Office Cleaning</option>
+                                <option value="Deep Cleaning">Deep Cleaning</option>
+                                <option value="Move-in/Move-out">Move-in / Move-out Cleaning</option>
+                                <option value="Sanitation">Sanitation / Disinfection</option>
+                                <option value="Regular Maintenance">Regular Maintenance</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingDate" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control" id="bookingDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingTime" class="form-label">Preferred Time</label>
+                            <input type="time" class="form-control" id="bookingTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingNotes" class="form-label">Additional Notes</label>
+                            <textarea class="form-control" id="bookingNotes" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitBooking">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -738,120 +459,10 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
-
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real environment, you'd send this data to a server
-            // But for now, we'll just show a success message
-            alert('Thank you for contacting us, ' + name + '! We will get back to you shortly.');
-            
-            // Reset the form
-            this.reset();
-        });
-
-        // Back to top button functionality
-        window.addEventListener('scroll', function() {
-            const backToTopButton = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-
-        document.getElementById('backToTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for navigation links with offset for fixed navbar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // Calculate offset to account for fixed navbar
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        navbarCollapse.classList.remove('show');
-                    }
-                }
-            });
-        });
-
-        // Active navigation menu based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - navbarHeight - 20; // Added extra offset
-                const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Handle resize events for responsive adjustments
-        window.addEventListener('resize', function() {
-            // Adjust hero section margin-top based on navbar height
-            const navbar = document.querySelector('.navbar');
-            const hero = document.querySelector('.hero');
-            if (hero && navbar) {
-                hero.style.marginTop = navbar.offsetHeight + 'px';
-            }
-        });
-        
-        // Run once on load to set initial margins
-        window.addEventListener('load', function() {
-            const navbar = document.querySelector('.navbar');
-            const hero = document.querySelector('.hero');
-            if (hero && navbar) {
-                hero.style.marginTop = navbar.offsetHeight + 'px';
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
