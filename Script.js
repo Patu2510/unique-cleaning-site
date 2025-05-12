@@ -1,391 +1,197 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS Animation Library
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+// Form submission handler
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+    
+    // In a real environment, you'd send this data to a server
+    // But for now, we'll just show a success message
+    alert('Thank you for contacting us, ' + name + '! We will get back to you shortly.');
+    
+    // Reset the form
+    this.reset();
+});
 
-    // Preloader
-    window.addEventListener('load', function() {
-        const preloader = document.querySelector('.preloader');
-        if (preloader) {
-            preloader.classList.add('fade-out');
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 1000);
-        }
-    });
-
-    // Update copyright year
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Navigation style change on scroll
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            navbar.classList.remove('navbar-scrolled');
-        }
-    });
-
-    // Back to top button visibility
+// Back to top button functionality
+window.addEventListener('scroll', function() {
     const backToTopButton = document.getElementById('backToTop');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('active');
+    } else {
+        backToTopButton.classList.remove('active');
+    }
+});
 
-    // Back to top functionality
-    backToTopButton.addEventListener('click', function(e) {
+document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Smooth scrolling for navigation links with offset for fixed navbar
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Smooth scrolling for all internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            // Calculate offset to account for fixed navbar
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
             
             // Close mobile menu if open
             const navbarCollapse = document.querySelector('.navbar-collapse');
             if (navbarCollapse.classList.contains('show')) {
                 navbarCollapse.classList.remove('show');
             }
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Active navigation highlighting based on scroll position
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', function() {
-        let current = '';
-        const scrollPosition = window.scrollY + 100;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Service cards hover effects
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.classList.add('service-hover');
-        });
-        card.addEventListener('mouseleave', function() {
-            this.classList.remove('service-hover');
-        });
-    });
-
-    // Form validation and handling
-
-    // Validate email format
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    // Validate phone number format
-    function isValidPhone(phone) {
-        const phoneRegex = /^[0-9]{10}$/;
-        return phoneRegex.test(phone.replace(/[^0-9]/g, ''));
-    }
-
-    // Validate date is not in the past
-    function isValidDate(dateInput) {
-        const selectedDate = new Date(dateInput.value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        if (selectedDate < today) {
-            dateInput.setCustomValidity('Please select a future date');
-            return false;
-        } else {
-            dateInput.setCustomValidity('');
-            return true;
         }
-    }
-
-    // Booking form validation and submission
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        const bookingDate = document.getElementById('bookingDate');
-        
-        // Set min date to today
-        const today = new Date().toISOString().split('T')[0];
-        bookingDate.setAttribute('min', today);
-        
-        bookingDate.addEventListener('input', function() {
-            isValidDate(this);
-        });
-        
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let isValid = true;
-            
-            // Validate name
-            const name = document.getElementById('bookingName');
-            if (!name.value.trim()) {
-                name.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                name.classList.remove('is-invalid');
-            }
-            
-            // Validate email
-            const email = document.getElementById('bookingEmail');
-            if (!isValidEmail(email.value)) {
-                email.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                email.classList.remove('is-invalid');
-            }
-            
-            // Validate phone
-            const phone = document.getElementById('bookingPhone');
-            if (!isValidPhone(phone.value)) {
-                phone.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                phone.classList.remove('is-invalid');
-            }
-            
-            // Validate service selection
-            const service = document.getElementById('bookingService');
-            if (!service.value) {
-                service.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                service.classList.remove('is-invalid');
-            }
-            
-            // Validate date
-            if (!isValidDate(bookingDate)) {
-                bookingDate.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                bookingDate.classList.remove('is-invalid');
-            }
-            
-            // Validate time
-            const time = document.getElementById('bookingTime');
-            if (!time.value) {
-                time.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                time.classList.remove('is-invalid');
-            }
-            
-            // Validate address
-            const address = document.getElementById('bookingAddress');
-            if (!address.value.trim()) {
-                address.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                address.classList.remove('is-invalid');
-            }
-            
-            if (isValid) {
-                // Prepare form data for email submission
-                const formData = {
-                    name: name.value,
-                    email: email.value,
-                    phone: phone.value,
-                    service: service.value,
-                    date: bookingDate.value,
-                    time: time.value,
-                    address: address.value,
-                    notes: document.getElementById('bookingNotes').value,
-                    formType: "Booking Request"
-                };
-                
-                // Send email using EmailJS or similar service
-                sendEmailWithFormData('jprathmesh581@gmail.com', formData);
-                
-                // Show success message
-                showAlert('Your booking has been sent! We will contact you shortly to confirm.', 'success');
-                
-                // Reset form after submission
-                bookingForm.reset();
-                
-                // Refresh page after short delay (Urban Company style)
-                setTimeout(() => {
-                    window.location.reload();
-                }, 3000);
-            }
-        });
-    }
-
-    // Contact form validation and submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let isValid = true;
-            
-            // Validate name
-            const name = document.getElementById('name');
-            if (!name.value.trim()) {
-                name.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                name.classList.remove('is-invalid');
-            }
-            
-            // Validate email
-            const email = document.getElementById('email');
-            if (!isValidEmail(email.value)) {
-                email.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                email.classList.remove('is-invalid');
-            }
-            
-            // Validate phone
-            const phone = document.getElementById('phone');
-            if (!isValidPhone(phone.value)) {
-                phone.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                phone.classList.remove('is-invalid');
-            }
-            
-            // Validate service selection
-            const service = document.getElementById('service');
-            if (!service.value) {
-                service.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                service.classList.remove('is-invalid');
-            }
-            
-            // Validate message
-            const message = document.getElementById('message');
-            if (!message.value.trim()) {
-                message.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                message.classList.remove('is-invalid');
-            }
-            
-            if (isValid) {
-                // Prepare form data for email submission
-                const formData = {
-                    name: name.value,
-                    email: email.value,
-                    phone: phone.value,
-                    service: service.value,
-                    message: message.value,
-                    formType: "Contact Request"
-                };
-                
-                // Send email using EmailJS or similar service
-                sendEmailWithFormData('jprathmesh581@gmail.com', formData);
-                
-                // Show success message
-                showAlert('Thank you for your message! We will get back to you soon.', 'success');
-                
-                // Reset form after submission
-                contactForm.reset();
-                
-                // Refresh page after short delay (Urban Company style)
-                setTimeout(() => {
-                    window.location.reload();
-                }, 3000);
-            }
-        });
-    }
-
-    // Alert message handling
-    const alertMessage = document.getElementById('alertMessage');
-    const alertText = document.getElementById('alertText');
-    const alertClose = document.getElementById('alertClose');
-    
-    function showAlert(message, type) {
-        alertText.textContent = message;
-        alertMessage.className = `alert alert-${type}`;
-        alertMessage.classList.add('show');
-        
-        // Auto hide after 5 seconds
-        setTimeout(() => {
-            alertMessage.classList.remove('show');
-        }, 5000);
-    }
-    
-    if (alertClose) {
-        alertClose.addEventListener('click', function() {
-            alertMessage.classList.remove('show');
-        });
-    }
-
-    // Image lazy loading for better performance
-    document.querySelectorAll('img').forEach(img => {
-        img.loading = 'lazy';
     });
+});
 
-    // Email sending functionality using EmailJS
-    function sendEmailWithFormData(recipient, formData) {
-        // Initialize EmailJS with your user ID
-        emailjs.init("YOUR_EMAILJS_USER_ID");
+// Active navigation menu based on scroll position
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - navbarHeight - 20; // Added extra offset
+        const sectionHeight = section.clientHeight;
         
-        // Prepare template parameters
-        const templateParams = {
-            to_email: recipient,
-            from_name: formData.name,
-            from_email: formData.email,
-            from_phone: formData.phone,
-            service_type: formData.service,
-            message: formData.message || "",
-            form_type: formData.formType,
-            booking_date: formData.date || "",
-            booking_time: formData.time || "",
-            address: formData.address || "",
-            notes: formData.notes || ""
-        };
-        
-        // Send email using EmailJS
-        emailjs.send('default_service', 'YOUR_TEMPLATE_ID', templateParams)
-            .then(function(response) {
-                console.log('Email sent successfully!', response.status, response.text);
-            }, function(error) {
-                console.error('Failed to send email:', error);
-                // Show error message to user but don't block UI flow
-                showAlert('There was an issue sending your request. Please try again or contact us directly.', 'danger');
-            });
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Handle resize events for responsive adjustments
+window.addEventListener('resize', function() {
+    // Adjust hero section margin-top based on navbar height
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+    if (hero && navbar) {
+        hero.style.marginTop = navbar.offsetHeight + 'px';
     }
+});
+
+// Run once on load to set initial margins
+window.addEventListener('load', function() {
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero');
+    if (hero && navbar) {
+        hero.style.marginTop = navbar.offsetHeight + 'px';
+    }
+});
+
+// Book Now button functionality
+document.getElementById('bookNowBtn').addEventListener('click', function() {
+    // Open email client with prefilled information
+    const emailTo = 'jprathmesh581@gmail.com';
+    const emailSubject = 'New Service Booking Request';
+    const emailBody = 'I would like to book a cleaning service. Please contact me for more details.\n\nName:\nPhone:\nAddress:\nService Required:\nPreferred Date and Time:';
+    
+    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+});
+
+// Service card book buttons
+document.querySelectorAll('.service-book-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const service = this.getAttribute('data-service');
+        
+        // Open email client with prefilled information
+        const emailTo = 'jprathmesh581@gmail.com';
+        const emailSubject = `New Booking Request: ${service}`;
+        const emailBody = `I would like to book the ${service} service. Please contact me for more details.\n\nName:\nPhone:\nAddress:\nPreferred Date and Time:`;
+        
+        window.location.href = `mailto:${emailTo}?subject=${encureURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    });
+});
+
+// Booking form submission handler
+document.getElementById('submitBooking').addEventListener('click', function() {
+    // Get form values
+    const name = document.getElementById('bookingName').value;
+    const email = document.getElementById('bookingEmail').value;
+    const phone = document.getElementById('bookingPhone').value;
+    const address = document.getElementById('bookingAddress').value;
+    const service = document.getElementById('bookingService').value;
+    const date = document.getElementById('bookingDate').value;
+    const time = document.getElementById('bookingTime').value;
+    const notes = document.getElementById('bookingNotes').value;
+    
+    // Validate form
+    if (!name || !email || !phone || !address || !service || !date || !time) {
+        alert('Please fill all required fields');
+        return;
+    }
+    
+    // Format date and time for display
+    const formattedDate = new Date(date).toLocaleDateString();
+    const formattedTime = time;
+    
+    // Build email body
+    const emailTo = 'jprathmesh581@gmail.com';
+    const emailSubject = `New Booking: ${service}`;
+    const emailBody = `New Service Booking Details:\n\n` +
+                     `Service: ${service}\n` +
+                     `Name: ${name}\n` +
+                     `Email: ${email}\n` +
+                     `Phone: ${phone}\n` +
+                     `Address: ${address}\n` +
+                     `Date: ${formattedDate}\n` +
+                     `Time: ${formattedTime}\n` +
+                     `Additional Notes: ${notes || 'None'}`;
+    
+    // Open email client
+    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Close modal and reset form
+    const bookingModal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+    bookingModal.hide();
+    document.getElementById('bookingForm').reset();
+});
+
+// Add click event for service booking buttons to open modal
+document.querySelectorAll('.service-book-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get the service name from data attribute
+        const service = this.getAttribute('data-service');
+        
+        // Set the selected service in the booking form dropdown
+        const serviceDropdown = document.getElementById('bookingService');
+        for (let i = 0; i < serviceDropdown.options.length; i++) {
+            if (serviceDropdown.options[i].text === service) {
+                serviceDropdown.selectedIndex = i;
+                break;
+            }
+        }
+        
+        // Open the booking modal
+        const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+        bookingModal.show();
+    });
 });
